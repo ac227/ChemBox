@@ -1,12 +1,15 @@
 package main
 
 import (
+	"embed"
 	"encoding/xml"
 	"fmt"
-	"io/ioutil"
 	"regexp"
 	"strconv"
 )
+
+//go:embed data/*
+var f embed.FS
 
 // CalcMr calculates the molecular mass based on the chemical formula
 func calcMr(formula string) float64 {
@@ -44,7 +47,7 @@ func getData(atomicNumber int, keyword string) string {
 	var result string
 	i := 0
 
-	file, err := ioutil.ReadFile("./data/ChemistryElementInfomation.xml")
+	file, err := f.ReadFile("/ChemistryElementInfomation.xml")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return "error"
