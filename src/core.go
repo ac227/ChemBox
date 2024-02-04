@@ -47,7 +47,7 @@ func getData(atomicNumber int, keyword string) string {
 	var result string
 	i := 0
 
-	file, err := f.ReadFile("/ChemistryElementInfomation.xml")
+	file, err := f.ReadFile("data/ChemistryElementInfomation.xml")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return "error"
@@ -120,5 +120,6 @@ func getDataDouble(atomicNumber int, keyword string) float64 {
 }
 
 func main() {
-	fmt.Println(calcMr("H2O"))
+	fmt.Println(calcMr("CaCO3"))
+	fmt.Println(getData(17, "Symbol"), getData(17, "OxidationStates"))
 }
