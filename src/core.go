@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"regexp"
 	"strconv"
+	"strings"
 )
 
 //go:embed data/*
@@ -120,6 +121,14 @@ func getDataDouble(atomicNumber int, keyword string) float64 {
 }
 
 func main() {
-	fmt.Println(calcMr("CaCO3"))
-	fmt.Println(getData(17, "Symbol"), getData(17, "OxidationStates"))
+	//fmt.Println(calcMr("CH3CH2OH"))
+	//fmt.Println(getData(17, "Symbol"), getData(17, "OxidationStates"))
+	var cmd string = "";
+	fmt.Scan(&cmd)
+	//fmt.Println(calcMr(cmd))
+	var cmdTree = strings.Split(cmd, " ")
+	fmt.Println(cmdTree)
+
+
+
 }
